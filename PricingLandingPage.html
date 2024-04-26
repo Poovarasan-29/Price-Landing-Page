@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Page</title>
+    <link rel="web icon" href="./Images/WebIconPrice.jpg">
+    <link rel="stylesheet" href="PricingLandingPage.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>Choose Your Plan</h1>
+        <p>Start your Travelling with Us</p>
+    </header>
+    <main id="main">
+        <div class="box" id="box">
+            <h2>Free</h2>
+            <div class="features">
+                <ul>
+                    <li>Recorded Videos</li>
+                    <li>Live Section</li>
+                    <li>Doubt Section</li>
+                    <li>Free Hosting</li>
+                    <li>Project Ideas</li>
+                </ul>
+            </div>
+            <button class="freePlanBtn" id="freePlanBtn" value="0">Free Trial/3Days</button>
+        </div>
+        <div class="box" id="box">
+            <h2>Basic</h2>
+            <div class="features" id="basicPlanFeatures">
+                <ul>
+                    <li>Recorded Videos</li>
+                    <li>Live Section</li>
+                    <li>Doubt Section</li>
+                    <li>Free Hosting</li>
+                    <li>Project Ideas</li>
+                </ul>
+            </div>
+            <button class="selectPlanBtnForPay" id="selectPlanBtnForPay" value="20">$20/Monthly</button>
+            <button class="yearlyPlanBtn" id="selectPlanBtnForPay" value="192">$192/Yearly</button>
+        </div>
+        <div class="box" id="box">
+            <h2>Premium</h2>
+            <div class="features">
+                <ul>
+                    <li>Recorded Videos</li>
+                    <li>Live Section</li>
+                    <li>Doubt Section</li>
+                    <li>Free Hosting</li>
+                    <li>Project Ideas</li>
+                </ul>
+            </div>
+            <button class="selectPlanBtnForPay" id="selectPlanBtnForPay" value="50">$50/Monthly</button>
+            <button class="yearlyPlanBtn" id="selectPlanBtnForPay" value="480">$480/Yearly</button>
+        </div>
+        <div class="box" id="box">
+            <h2>Lifetime</h2>
+            <div class="features">
+                <ul>
+                    <li>Recorded Videos</li>
+                    <li>Live Section</li>
+                    <li>Doubt Section</li>
+                    <li>Free Hosting</li>
+                    <li>Project Ideas</li>
+                </ul>
+            </div>
+
+            <button class="oldUserLTPlanBtn" id="oldUserLTPlanBtn" value="2000"
+                style="background-color: gray;cursor:not-allowed;"><del>$2000 Only</del></button>
+
+            <button class="newUserLTPlanBtn" id="selectPlanBtnForPay" value="1600">$1600 Only</button>
+        </div>
+    </main>
+
+    <footer id="newUserAlertMsg">
+        <div class="welcome-content">
+            Welcome Dear, we give the Big Offer for First time Buy the Membership(If you already buy any plans, You're
+            not eligible). This is a Lifetime Offer for You , can Buy this plan for <mark>$1600</mark> only then Access
+            all features with Lifetime validity. Thanks for visiting our website !!
+        </div>
+        <button value="OK" class="footerOkBtn" id="footerOkBtn">OK</button>
+    </footer>
+
+
+    <div class="selectUPIapp" id="selectUPIapp">
+        <div class="selectPage" id="selectPage">
+            <h3>Select UPI and Pay <span id="showSelectError">*Must select UPI app</span></h3>
+            <div class="apps">
+
+                <img src="./Images/gpay.png" alt="GPay" id="images">
+                <img src="./Images/phonepe.png" alt="PhonePe" id="images">
+                <img src="./Images/paytm.png" alt="Paytm" id="images">
+
+            </div>
+            <div class="pay-cancel-btn">
+                <button class="payBtn" id="payBtn" value="">Pay</button>
+                <button class="cancelBtn" id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+
+        <div class="paymentProcessing" id="paymentProcessing">
+            <div class="circle1">
+                <div class="circle2"></div>
+            </div>
+            <h2>Processing...</h2>
+        </div>
+
+        <div class="planActivatedMessage" id="planActivatedMessage">
+            <span>✅</span><br>
+            <p><span id="planName"></span> Plan Successfully Activated !!</p>
+        </div>
+    </div>
+
+
+    <div class="wave">
+        <div class="c1 circle">
+            <div class="c2 circle"></div>
+        </div>
+    </div>
+
+    <div class="planAlreadyActivated" id="planAlreadyActivated">
+        <span>i</span><br>
+        Plan Already Activated
+    </div>
+
+    <script src="PricingLandingPage.js"></script>
+</body>
+
+</html>

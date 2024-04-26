@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --skyblue: rgb(59, 147, 182);
+    --waveColor: rgb(14, 196, 202);
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom left, rgb(52, 35, 63) 40%, rgb(117, 69, 150)) no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    padding: 50px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header h1 {
+    font-size: 50px;
+    color: white;
+    letter-spacing: -2px;
+    transition: all .5s;
+}
+
+header p {
+    text-align: center;
+    padding-top: 20px;
+    color: rgb(218, 198, 175);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+.box {
+    width: 250px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    place-items: start;
+    gap: 10px;
+    border: 2px solid rgb(59, 147, 182);
+    background: white;
+
+}
+
+.box h2 {
+    display: grid;
+    place-items: center;
+    background-color: rgb(59, 147, 182);
+    width: 100%;
+    height: 50px;
+}
+
+.box .features ul {
+    padding-left: 20px;
+}
+
+.box .features ul li {
+    list-style-type: none;
+    padding: 4px;
+}
+
+.box .features ul li::before {
+    content: '✔';
+    color: rgb(8, 184, 8);
+    padding: 0 5px;
+    font-size: 20px;
+}
+
+#basicPlanFeatures ul li:nth-child(2)::before,
+#basicPlanFeatures ul li:nth-child(4)::before {
+    content: '❌';
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+
+#basicPlanFeatures ul li:nth-child(2),
+#basicPlanFeatures ul li:nth-child(4) {
+    padding: 7px 0px;
+}
+
+button {
+    display: block;
+    width: 120px;
+    padding: 12px 0;
+    margin-top: 5px;
+    border: none;
+    background-color: rgb(59, 147, 182);
+    color: whitesmoke;
+    cursor: pointer;
+    position: relative;
+    transition: all .2s;
+
+}
+
+.yearlyPlanBtn::after {
+    content: '-20%';
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 11px;
+    color: red;
+    font-weight: bold;
+}
+
+.freePlanBtn {
+    margin-top: 30px;
+}
+
+del {
+    color: rgb(165, 23, 23);
+}
+
+.box:nth-child(2) h2,
+.box:nth-child(2) button {
+    background-color: limegreen;
+}
+
+.box:nth-child(2) {
+    border-color: limegreen;
+}
+
+.box:nth-child(3) h2,
+.box:nth-child(3) button {
+    background-color: rgb(255, 166, 0);
+}
+
+.box:nth-child(3) {
+    border-color: rgb(255, 166, 0);
+}
+
+.box:nth-child(4) h2,
+.box:nth-child(4) button {
+    background-color: rgb(182, 27, 53);
+}
+
+.box:nth-child(4) {
+    border-color: rgb(182, 27, 53);
+}
+
+
+footer {
+    position: fixed;
+    background: rgb(216, 214, 204);
+    color: black;
+    box-shadow: -2px -2px 10px rgb(54, 52, 52);
+    bottom: 7px;
+    width: 90%;
+    padding: 18px 12px;
+    line-height: 24px;
+    transition: all .5s ease;
+    animation: slideBottomToTop 1s linear forwards;
+    /* display: none; */
+}
+
+footer button {
+    float: right;
+}
+
+footer button:hover {
+    box-shadow: inset 2px 2px 2px black, inset -2px -2px 2px black;
+}
+
+.box:hover {
+    transition: all .4s;
+    transform: scale(1.07);
+}
+
+.box:not(:hover) {
+    transition: all .4s;
+}
+
+.box:nth-child(1) button:hover {
+    box-shadow: inset 0px 2px 1px rgb(29, 86, 109), inset -2px -2px 1px rgb(29, 86, 109);
+}
+
+.box:nth-child(2) button:hover {
+    box-shadow: inset 0px 2px 1px rgb(25, 133, 25), inset -2px -2px 1px rgb(25, 133, 25);
+}
+
+.box:nth-child(3) button:hover {
+    box-shadow: inset 0px 2px 1px rgb(156, 103, 3), inset -2px -2px 1px rgb(156, 103, 3);
+}
+
+.box:nth-child(4) button:hover {
+    box-shadow: inset 0px 2px 1px rgb(100, 14, 29), inset -2px -2px 1px rgb(100, 14, 29);
+}
+
+
+
+@keyframes slideBottomToTop {
+    0% {
+        bottom: -200px;
+    }
+
+    75% {
+        bottom: 5px;
+    }
+}
+
+@keyframes slideTopToBottom {
+    0% {
+        bottom: 7px;
+    }
+
+    100% {
+        bottom: -200px;
+        display: none;
+    }
+}
+
+
+
+.planActivated {
+    position: fixed;
+    width: 40%;
+    background-color: rgb(20, 19, 19);
+    color: white;
+    border-radius: 10px;
+    justify-content: center;
+    flex-direction: column;
+    height: 250px;
+    padding: 20px;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    top: 50%;
+    bottom: 50%;
+    transform: translateY(-50%);
+    /* box-shadow: 3px 3px 14px green, -3px -3px 14px green; */
+    display: none;
+}
+
+.planActivated span {
+    font-size: 40px;
+}
+
+@keyframes showAfterHide {
+    0% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.selectUPIapp {
+    width: 80%;
+    height: 200px;
+    background-color: aliceblue;
+    /* flex-direction: column; */
+    padding: 20px;
+    position: fixed;
+    bottom: 10px;
+    /* gap: 20px; */
+    box-shadow: -2px -2px 10px rgb(54, 52, 52);
+    animation: slideBottomToTop .6s linear forwards;
+    display: none;
+}
+
+.selectPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.selectPage .apps {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.selectPage #showSelectError {
+    font-size: 14px;
+    color: red;
+    transition: all .4s;
+    display: none;
+}
+
+.selectPage .apps img {
+    width: 90px;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.selectPage .apps img:hover {
+    background-color: limegreen;
+}
+
+.selectPage .apps h3 {
+    display: none;
+}
+
+.paymentProcessing,
+.planActivatedMessage {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.planActivatedMessage {
+    justify-content: center;
+    font-size: 20px;
+    gap: 2px;
+}
+
+
+.pay-cancel-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payBtn {
+    width: 70%;
+}
+
+.cancelBtn {
+    width: 25%;
+    background-color: orangered;
+}
+
+
+
+
+
+
+
+
+
+.circle1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    animation: wave 1s infinite linear alternate;
+}
+
+.circle2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: wave 1s infinite linear alternate;
+    animation-delay: .3s;
+}
+
+@keyframes wave {
+    0% {
+        box-shadow: inset 2px 2px 2px var(--waveColor), -2px -2px 2px var(--waveColor);
+    }
+
+    25% {
+        box-shadow: inset 2px 2px 6px var(--waveColor), -2px -2px 6px var(--waveColor);
+    }
+
+    50% {
+        box-shadow: inset 2px 2px 10px var(--waveColor), -2px -2px 10px var(--waveColor);
+    }
+
+    75% {
+        box-shadow: inset 2px 2px 12px var(--waveColor), -2px -2px 12px var(--waveColor);
+    }
+
+    100% {
+        box-shadow: inset 2px 2px 18px var(--waveColor), -2px -2px 18px var(--waveColor);
+    }
+
+}
+
+.planAlreadyActivated {
+    width: 40%;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(31, 27, 27);
+    color: white;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+    text-align: center;
+    transition: all .4s;
+    display: none;
+    animation: opacity .4s linear forwards;
+
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.planAlreadyActivated span {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* background-color: rgb(0, 255, 234); */
+    color: rgb(80, 77, 77);
+    display: grid;
+    place-items: center;
+    font-size: 0px;
+    font-weight: bold;
+    transition: all .4s;
+    animation: info .6s linear forwards;
+    border: 1.5px solid;
+    border-right-color: yellow;
+
+}
+
+@keyframes info {
+
+    from {
+        transform: rotate(400deg);
+        font-size: 0;
+    }
+
+    to {
+        border: none;
+        background-color: yellow;
+        font-size: 30px;
+    }
+}
+
+
+@media only screen and (max-width:853px) {
+    footer {
+        line-height: 22px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width:637px) {
+    header h1 {
+        font-size: 40px;
+    }
+
+    footer {
+        line-height: 18px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width:533px) {
+    .selectUPIapp #showSelectError {
+        font-size: 11px;
+    }
+
+    .planAlreadyActivated {
+        font-size: 20px;
+    }
+
+    .planAlreadyActivated span {
+        width: 50px;
+        height: 50px;
+    }
+}
