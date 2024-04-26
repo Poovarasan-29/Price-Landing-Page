@@ -10,10 +10,12 @@
 </head>
 
 <body>
+    <!-- Main Displaying Contents means Static -->
     <header id="header">
         <h1>Choose Your Plan</h1>
         <p>Start your Travelling with Us</p>
     </header>
+
     <main id="main">
         <div class="box" id="box">
             <h2>Free</h2>
@@ -84,16 +86,17 @@
         <button value="OK" class="footerOkBtn" id="footerOkBtn">OK</button>
     </footer>
 
+    <!-- Static contents Ended -->
 
+
+    <!-- Dynamically this contents are Showing -->
     <div class="selectUPIapp" id="selectUPIapp">
         <div class="selectPage" id="selectPage">
             <h3>Select UPI and Pay <span id="showSelectError">*Must select UPI app</span></h3>
             <div class="apps">
-
                 <img src="./Images/gpay.png" alt="GPay" id="images">
                 <img src="./Images/phonepe.png" alt="PhonePe" id="images">
                 <img src="./Images/paytm.png" alt="Paytm" id="images">
-
             </div>
             <div class="pay-cancel-btn">
                 <button class="payBtn" id="payBtn" value="">Pay</button>
@@ -101,6 +104,7 @@
             </div>
         </div>
 
+        <!-- Processing Wave -->
         <div class="paymentProcessing" id="paymentProcessing">
             <div class="circle1">
                 <div class="circle2"></div>
@@ -108,6 +112,7 @@
             <h2>Processing...</h2>
         </div>
 
+        <!-- Plan Activated Success Message -->
         <div class="planActivatedMessage" id="planActivatedMessage">
             <span>✅</span><br>
             <p><span id="planName"></span> Plan Successfully Activated !!</p>
@@ -115,17 +120,11 @@
     </div>
 
 
-    <div class="wave">
-        <div class="c1 circle">
-            <div class="c2 circle"></div>
-        </div>
-    </div>
-
     <div class="planAlreadyActivated" id="planAlreadyActivated">
         <span>i</span><br>
         Plan Already Activated
     </div>
-
+    <!-- Dynamic contents Ended -->
     <script src="PricingLandingPage.js"></script>
 </body>
 
