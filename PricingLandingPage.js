@@ -1,27 +1,27 @@
+// Elements take from HTML
 const footerOkBtn = document.getElementById('footerOkBtn')
 const freePlanBtn = document.getElementById('freePlanBtn')
 const images = document.querySelectorAll('#images')
-let planActivated = document.getElementById('planActivated')
 const selectPlanBtnForPay = document.querySelectorAll('#selectPlanBtnForPay')
-let payBtn = document.getElementById('payBtn')
+const payBtn = document.getElementById('payBtn')
 const cancelBtn = document.getElementById('cancelBtn')
 const selectUPIapp = document.getElementById('selectUPIapp')
 const paymentProcessing = document.getElementById('paymentProcessing')
 const planActivatedMessage = document.getElementById('planActivatedMessage')
 const selectPage = document.getElementById('selectPage')
-let planName = document.getElementById('planName')
+const planName = document.getElementById('planName')
 const planAlreadyActivated = document.getElementById('planAlreadyActivated')
 
 
 
-
+// Plan Rate and that Button index
 const planBtnRateWithIndex = { '20': 0, '192': 1, '50': 2, '480': 3, '1600': 4 }
-var planActivationStatus = false
-var freePlanActivate = true
-var buyedPlanName;
+var planActivationStatus = false // Track Plan is Activate or Inactivate
+var freePlanActivate = true // Free plan Activate Availablity check
+var buyedPlanName; // Get the buyed Plan name for displaying in Plan Activated Message
 
 
-
+// Close the Footer Information using [ OK ] button
 footerOkBtn.addEventListener('click', () => {
     const newUserAlertMsg = document.getElementById('newUserAlertMsg')
     newUserAlertMsg.style.animationName = "slideTopToBottom"
@@ -29,10 +29,10 @@ footerOkBtn.addEventListener('click', () => {
 })
 
 
-
+// EventListener for clicking the Free Plan Button
 freePlanBtn.addEventListener('click', () => {
-    if (planActivationStatus == false) {
-        if (freePlanActivate) {
+    if (planActivationStatus == false) { // Check : Other plan is Already Activated or Inactivated
+        if (freePlanActivate) { // Check : Free plan is Already Activated or Inactivated
             planActivationStatus = true
             freePlanActivate = false
             selectUPIapp.style.display = 'flex'
@@ -54,10 +54,10 @@ freePlanBtn.addEventListener('click', () => {
                 freePlanBtn.innerHTML = `<span id='days'>02</span>:<span id='hours'>23</span>:<span id='minutes'>59</span>:<span id='seconds'>59</span>`
                 freePlanBtn.title = "DD:HH:MM:SS"
 
-                let days = document.getElementById('days')
-                let hours = document.getElementById('hours')
-                let minutes = document.getElementById('minutes')
-                let seconds = document.getElementById('seconds')
+                const days = document.getElementById('days')
+                const hours = document.getElementById('hours')
+                const minutes = document.getElementById('minutes')
+                const seconds = document.getElementById('seconds')
 
                 for (let index = 0; index <= 4; index++) {
                     selectPlanBtnForPay[index].parentElement.style.background = 'white'
@@ -74,10 +74,9 @@ freePlanBtn.addEventListener('click', () => {
                 setInterval(planValidityTimer, 1000, days, hours, minutes, seconds, 0)
             }, 4000)
 
-
         }
     }
-    else {
+    else { // If any plan is Already Activated Show the Information (Plan Already Activated)
         planAlreadyActivated.style.display = 'flex'
         setTimeout(() => {
             planAlreadyActivated.style.display = 'none'
@@ -87,9 +86,8 @@ freePlanBtn.addEventListener('click', () => {
 })
 
 
-
+// Function for calculate or display Remaining time for That user choosen plan [DAYS:HOURS:MINUTES:SECONDS]
 function planValidityTimer(days, hours, minutes, seconds, checks) {
-
 
     if (days.innerText > 0 || hours.innerText > 0 || minutes > 0) {
 
@@ -137,9 +135,9 @@ function planValidityTimer(days, hours, minutes, seconds, checks) {
         else
             seconds.innerText -= 1
     }
-    else {
+    else { // If the Plan is Expired or Ended show some Information [Plan Expired]
         planActivationStatus = false
-        clearInterval(4)
+        clearInterval(4) // If Plan is Expired clear the setInterval()
         if (checks == 1) {
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundImage = "url('./Images/completed.png')"
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].innerHTML = buyedPlanName;
@@ -151,12 +149,11 @@ function planValidityTimer(days, hours, minutes, seconds, checks) {
         }
     }
 
-
 }
 
 
-
-
+// Choose the Payment app with Background color (limegreen) 
+// [ IMPORTANT ]* if we change the Image background color in CSS then must chenge the color here
 images.forEach(img => {
     img.addEventListener('click', () => {
         for (let index = 0; index < images.length; index++) {
@@ -168,7 +165,7 @@ images.forEach(img => {
 })
 
 
-
+// Track which Plan button is Selected
 selectPlanBtnForPay.forEach(selectBtn => {
     selectBtn.addEventListener('click', () => {
         if (planActivationStatus) {
@@ -192,17 +189,17 @@ selectPlanBtnForPay.forEach(selectBtn => {
     })
 })
 
+// If click the cancel button ,we close the payment window
 cancelBtn.addEventListener('click', () => {
     selectUPIapp.style.display = 'none'
 })
 
 
-
+// For Pay the amount
 payBtn.addEventListener('click', () => {
     let index;
     for (index = 0; index < images.length; index++) {
         if (images[index].style.background == 'limegreen') {
-            console.log("Inseide Image LiemGreen");
             planActivationStatus = true; // Plan is Activated
             paymentProcessing.style.display = 'flex'
             selectUPIapp.style.width = '50%'
@@ -219,6 +216,7 @@ payBtn.addEventListener('click', () => {
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundSize = 'contain'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.objectFit = 'cover'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundPosition = 'center'
+            selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.objectFit = 'cover'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundRepeat = 'no-repeat'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundBlendMode = 'hard-light'
 
@@ -230,8 +228,6 @@ payBtn.addEventListener('click', () => {
                     selectUPIapp.style.display = 'none'
                 }, 2000)
             }, 3000)
-            
-
 
             setTimeout(() => {
 
@@ -239,27 +235,25 @@ payBtn.addEventListener('click', () => {
                     selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].innerHTML = `<p style='color:limegreen;font-weight:bold;font-size:13px;letter-spacing:1px;'>Activated</p>`;
                 }
                 else {
-                    let planDays = planBtnRateWithIndex[payBtn.value] == 0 || planBtnRateWithIndex[payBtn.value] == 2 ? 28 : 365;
+                    let planDays = planBtnRateWithIndex[payBtn.value] == 0 || planBtnRateWithIndex[payBtn.value] == 2 ? 28 : 365; // Set Duration for selected Plan
 
                     if (planDays == 365) {
                         selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].classList.remove('yearlyPlanBtn')
                     }
                     selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].title = "DD:HH:MM:SS";
                     selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].innerHTML = `<span id='days'>${planDays - 1}</span>:<span id='hours'>23</span>:<span id='minutes'>59</span>:<span id='seconds'>59</span>`
-                    let days = document.getElementById('days')
-                    let hours = document.getElementById('hours')
-                    let minutes = document.getElementById('minutes')
-                    let seconds = document.getElementById('seconds')
+                    const days = document.getElementById('days')
+                    const hours = document.getElementById('hours')
+                    const minutes = document.getElementById('minutes')
+                    const seconds = document.getElementById('seconds')
                     setInterval(planValidityTimer, 1000, days, hours, minutes, seconds, 1)
                 }
-
-
             }, 5000)
             break;
         }
-
     }
-    if (index > 2) {
+    // If the condition is True that time the user didn't select any UPI ,when show Error [Must Select UPI] 
+    if (index > 2) { 
         document.getElementById('showSelectError').style.display = 'inline'
     }
 })
