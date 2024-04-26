@@ -219,7 +219,6 @@ payBtn.addEventListener('click', () => {
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundSize = 'contain'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.objectFit = 'cover'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundPosition = 'center'
-            selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.objectFit = 'cover'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundRepeat = 'no-repeat'
             selectPlanBtnForPay[planBtnRateWithIndex[payBtn.value]].parentElement.style.backgroundBlendMode = 'hard-light'
 
